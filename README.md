@@ -2,10 +2,10 @@
 [![Website Preview](https://img.shields.io/badge/Visit-Website-blue?logo=google-chrome)](https://superclaude-org.github.io/SuperClaude_Website/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://img.shields.io/pypi/v/SuperClaude.svg)](https://pypi.org/project/SuperClaude/)
-[![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://github.com/SuperClaude-Org/SuperClaude_Framework)
-[![GitHub issues](https://img.shields.io/github/issues/SuperClaude-Org/SuperClaude_Framework)](https://github.com/SuperClaude-Org/SuperClaude_Framework/issues)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/CONTRIBUTING.md)
-[![Contributors](https://img.shields.io/github/contributors/SuperClaude-Org/SuperClaude_Framework)](https://github.com/SuperClaude-Org/SuperClaude_Framework/graphs/contributors)
+[![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://github.com/NomenAK/SuperClaude)
+[![GitHub issues](https://img.shields.io/github/issues/NomenAK/SuperClaude)](https://github.com/NomenAK/SuperClaude/issues)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/NomenAK/SuperClaude/blob/master/CONTRIBUTING.md)
+[![Contributors](https://img.shields.io/github/contributors/NomenAK/SuperClaude)](https://github.com/NomenAK/SuperClaude/graphs/contributors)
 [![Website](https://img.shields.io/website?url=https://superclaude-org.github.io/SuperClaude_Website/)](https://superclaude-org.github.io/SuperClaude_Website/)
 
 A framework that extends Claude Code with specialized commands, personas, and MCP server integration.
@@ -100,54 +100,292 @@ SuperClaude installation is a **two-step process**:
 
 **Option A: From PyPI (Recommended)**
 ```bash
-uv add SuperClaude
+# Install from PyPI
+pipx install superclaude
+
+# Install commands (installs all 30 slash commands)
+superclaude install
+
+# Install MCP servers (optional, for enhanced capabilities)
+superclaude mcp --list         # List available MCP servers
+superclaude mcp                # Interactive installation
+superclaude mcp --servers tavily --servers context7  # Install specific servers
+
+# Verify installation
+superclaude install --list
+superclaude doctor
 ```
 
-**Option B: From Source**
+After installation, restart Claude Code to use 30 commands including:
+- `/sc:research` - Deep web research (enhanced with Tavily MCP)
+- `/sc:brainstorm` - Structured brainstorming
+- `/sc:implement` - Code implementation
+- `/sc:test` - Testing workflows
+- `/sc:pm` - Project management
+- `/sc` - Show all 30 available commands
+
+**Option 2: Direct Installation from Git**
 ```bash
+# Clone the repository
 git clone https://github.com/SuperClaude-Org/SuperClaude_Framework.git
 cd SuperClaude_Framework
-uv sync
+
+# Run the installation script
+./install.sh
 ```
-### 🔧 UV / UVX Setup Guide
 
-SuperClaude v3 also supports installation via [`uv`](https://github.com/astral-sh/uv) (a faster, modern Python package manager) or `uvx` for cross-platform usage.
+### **Coming in v5.0 (In Development)**
 
-### 🌀 Install with `uv`
-
-Make sure `uv` is installed:
+We are actively working on a new TypeScript plugin system (see issue [#419](https://github.com/SuperClaude-Org/SuperClaude_Framework/issues/419) for details). When released, installation will be simplified to:
 
 ```bash
-curl -Ls https://astral.sh/uv/install.sh | sh
+# This feature is not yet available
+/plugin marketplace add SuperClaude-Org/superclaude-plugin-marketplace
+/plugin install superclaude
 ```
 
-> Or follow instructions from: [https://github.com/astral-sh/uv](https://github.com/astral-sh/uv)
+**Status**: In development. No ETA has been set.
 
-Once `uv` is available, you can install SuperClaude like this:
+### **Enhanced Performance (Optional MCPs)**
+
+For **2-3x faster** execution and **30-50% fewer tokens**, optionally install MCP servers:
 
 ```bash
-uv venv
-source .venv/bin/activate
-uv pip install SuperClaude
+# Optional MCP servers for enhanced performance (via airis-mcp-gateway):
+# - Serena: Code understanding (2-3x faster)
+# - Sequential: Token-efficient reasoning (30-50% fewer tokens)
+# - Tavily: Web search for Deep Research
+# - Context7: Official documentation lookup
+# - Mindbase: Semantic search across all conversations (optional enhancement)
+
+# Note: Error learning available via built-in ReflexionMemory (no installation required)
+# Mindbase provides semantic search enhancement (requires "recommended" profile)
+# Install MCP servers: https://github.com/agiletec-inc/airis-mcp-gateway
+# See docs/mcp/mcp-integration-policy.md for details
 ```
 
-### ⚡ Install with `uvx` (Cross-platform CLI)
+**Performance Comparison:**
+- **Without MCPs**: Fully functional, standard performance ✅
+- **With MCPs**: 2-3x faster, 30-50% fewer tokens ⚡
 
-If you’re using `uvx`, just run:
+</div>
+
+---
+
+<div align="center">
+
+## 💖 **Support the Project**
+
+> Hey, let's be real - maintaining SuperClaude takes time and resources.
+> 
+> *The Claude Max subscription alone runs $100/month for testing, and that's before counting the hours spent on documentation, bug fixes, and feature development.*
+> *If you're finding value in SuperClaude for your daily work, consider supporting the project.*
+> *Even a few dollars helps cover the basics and keeps development active.*
+> 
+> Every contributor matters, whether through code, feedback, or support. Thanks for being part of this community! 🙏
+
+<table>
+<tr>
+<td align="center" width="33%">
+  
+### ☕ **Ko-fi**
+[![Ko-fi](https://img.shields.io/badge/Support_on-Ko--fi-ff5e5b?logo=ko-fi)](https://ko-fi.com/superclaude)
+
+*One-time contributions*
+
+</td>
+<td align="center" width="33%">
+
+### 🎯 **Patreon**
+[![Patreon](https://img.shields.io/badge/Become_a-Patron-f96854?logo=patreon)](https://patreon.com/superclaude)
+
+*Monthly support*
+
+</td>
+<td align="center" width="33%">
+
+### 💜 **GitHub**
+[![GitHub Sponsors](https://img.shields.io/badge/GitHub-Sponsor-30363D?logo=github-sponsors)](https://github.com/sponsors/SuperClaude-Org)
+
+*Flexible tiers*
+
+</td>
+</tr>
+</table>
+
+### **Your Support Enables:**
+
+| Item | Cost/Impact |
+|------|-------------|
+| 🔬 **Claude Max Testing** | $100/month for validation & testing |
+| ⚡ **Feature Development** | New capabilities & improvements |
+| 📚 **Documentation** | Comprehensive guides & examples |
+| 🤝 **Community Support** | Quick issue responses & help |
+| 🔧 **MCP Integration** | Testing new server connections |
+| 🌐 **Infrastructure** | Hosting & deployment costs |
+
+> **Note:** No pressure though - the framework stays open source regardless. Just knowing people use and appreciate it is motivating. Contributing code, documentation, or spreading the word helps too! 🙏
+
+</div>
+
+---
+
+<div align="center">
+
+## 🎉 **What's New in v4.1**
+
+> *Version 4.1 focuses on stabilizing the slash command architecture, enhancing agent capabilities, and improving documentation.*
+
+<table>
+<tr>
+<td width="50%">
+
+### 🤖 **Smarter Agent System**
+**16 specialized agents** with domain expertise:
+- PM Agent ensures continuous learning through systematic documentation
+- Deep Research agent for autonomous web research
+- Security engineer catches real vulnerabilities
+- Frontend architect understands UI patterns
+- Automatic coordination based on context
+- Domain-specific expertise on demand
+
+</td>
+<td width="50%">
+
+### ⚡ **Optimized Performance**
+**Smaller framework, bigger projects:**
+- Reduced framework footprint
+- More context for your code
+- Longer conversations possible
+- Complex operations enabled
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🔧 **MCP Server Integration**
+**8 powerful servers** with easy CLI installation:
 
 ```bash
-uvx pip install SuperClaude
+# List available MCP servers
+superclaude mcp --list
+
+# Install specific servers
+superclaude mcp --servers tavily context7
+
+# Interactive installation
+superclaude mcp
 ```
 
-### ✅ Finish Installation
+**Available servers:**
+- **Tavily** → Primary web search (Deep Research)
+- **Context7** → Official documentation lookup
+- **Sequential-Thinking** → Multi-step reasoning
+- **Serena** → Session persistence & memory
+- **Playwright** → Cross-browser automation
+- **Magic** → UI component generation
+- **Morphllm-Fast-Apply** → Context-aware code modifications
+- **Chrome DevTools** → Performance analysis
 
-After installing, continue with the usual installer step:
+</td>
+<td width="50%">
 
-```bash
-python3 -m SuperClaude install
-```
+### 🎯 **Behavioral Modes**
+**7 adaptive modes** for different contexts:
+- **Brainstorming** → Asks right questions
+- **Business Panel** → Multi-expert strategic analysis
+- **Deep Research** → Autonomous web research
+- **Orchestration** → Efficient tool coordination
+- **Token-Efficiency** → 30-50% context savings
+- **Task Management** → Systematic organization
+- **Introspection** → Meta-cognitive analysis
 
-Or using bash-style CLI:
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 📚 **Documentation Overhaul**
+**Complete rewrite** for developers:
+- Real examples & use cases
+- Common pitfalls documented
+- Practical workflows included
+- Better navigation structure
+
+</td>
+<td width="50%">
+
+### 🧪 **Enhanced Stability**
+**Focus on reliability:**
+- Bug fixes for core commands
+- Improved test coverage
+- More robust error handling
+- CI/CD pipeline improvements
+
+</td>
+</tr>
+</table>
+
+</div>
+
+---
+
+<div align="center">
+
+## 🔬 **Deep Research Capabilities**
+
+### **Autonomous Web Research Aligned with DR Agent Architecture**
+
+SuperClaude v4.2 introduces comprehensive Deep Research capabilities, enabling autonomous, adaptive, and intelligent web research.
+
+<table>
+<tr>
+<td width="50%">
+
+### 🎯 **Adaptive Planning**
+**Three intelligent strategies:**
+- **Planning-Only**: Direct execution for clear queries
+- **Intent-Planning**: Clarification for ambiguous requests
+- **Unified**: Collaborative plan refinement (default)
+
+</td>
+<td width="50%">
+
+### 🔄 **Multi-Hop Reasoning**
+**Up to 5 iterative searches:**
+- Entity expansion (Paper → Authors → Works)
+- Concept deepening (Topic → Details → Examples)
+- Temporal progression (Current → Historical)
+- Causal chains (Effect → Cause → Prevention)
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 📊 **Quality Scoring**
+**Confidence-based validation:**
+- Source credibility assessment (0.0-1.0)
+- Coverage completeness tracking
+- Synthesis coherence evaluation
+- Minimum threshold: 0.6, Target: 0.8
+
+</td>
+<td width="50%">
+
+### 🧠 **Case-Based Learning**
+**Cross-session intelligence:**
+- Pattern recognition and reuse
+- Strategy optimization over time
+- Successful query formulations saved
+- Performance improvement tracking
+
+</td>
+</tr>
+</table>
+
+### **Research Command Usage**
 
 ```bash
 SuperClaude install
@@ -265,11 +503,11 @@ Most users probably won't need to change anything - it usually works okay out of
 
 Want to learn more? Check out our guides:
 
-- 📚 [**User Guide**](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/Docs/superclaude-user-guide.md) - Complete overview and getting started
-- 🛠️ [**Commands Guide**](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/Docs/commands-guide.md) - All 16 slash commands explained  
-- 🏳️ [**Flags Guide**](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/Docs/flags-guide.md) - Command flags and options
-- 🎭 [**Personas Guide**](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/Docs/personas-guide.md) - Understanding the persona system
-- 📦 [**Installation Guide**](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/Docs/installation-guide.md) - Detailed installation instructions
+- 📚 [**User Guide**](https://github.com/NomenAK/SuperClaude/blob/master/Docs/superclaude-user-guide.md) - Complete overview and getting started
+- 🛠️ [**Commands Guide**](https://github.com/NomenAK/SuperClaude/blob/master/Docs/commands-guide.md) - All 16 slash commands explained  
+- 🏳️ [**Flags Guide**](https://github.com/NomenAK/SuperClaude/blob/master/Docs/flags-guide.md) - Command flags and options
+- 🎭 [**Personas Guide**](https://github.com/NomenAK/SuperClaude/blob/master/Docs/personas-guide.md) - Understanding the persona system
+- 📦 [**Installation Guide**](https://github.com/NomenAK/SuperClaude/blob/master/Docs/installation-guide.md) - Detailed installation instructions
 
 These guides have more details than this README and are kept up to date.
 
@@ -319,7 +557,7 @@ A: The basic stuff works pretty well, but definitely expect some rough edges sin
 
 ## SuperClaude Contributors
 
-[![Contributors](https://contrib.rocks/image?repo=SuperClaude-Org/SuperClaude_Framework)](https://github.com/SuperClaude-Org/SuperClaude_Framework/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=NomenAk/SuperClaude)](https://github.com/NomenAK/SuperClaude/graphs/contributors)
 
 ## License
 
@@ -327,15 +565,87 @@ MIT - [See LICENSE file for details](https://opensource.org/licenses/MIT)
 
 ## Star History
 
-<a href="https://www.star-history.com/#SuperClaude-Org/SuperClaude_Framework&Date">
+<a href="https://www.star-history.com/#NomenAK/SuperClaude&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=SuperClaude-Org/SuperClaude_Framework&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=SuperClaude-Org/SuperClaude_Framework&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=SuperClaude-Org/SuperClaude_Framework&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=NomenAK/SuperClaude&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=NomenAK/SuperClaude&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=NomenAK/SuperClaude&type=Date" />
  </picture>
 </a>
+
+
+</div>
+
 ---
 
-*Built by developers who got tired of generic responses. Hope you find it useful! 🙂*
+<div align="center">
+
+### **🚀 Built with passion by the SuperClaude community**
+
+<p align="center">
+  <sub>Made with ❤️ for developers who push boundaries</sub>
+</p>
+
+<p align="center">
+  <a href="#-superclaude-framework">Back to Top ↑</a>
+</p>
+
+</div>
 
 ---
+
+## 📋 **All 30 Commands**
+
+<details>
+<summary><b>Click to expand full command list</b></summary>
+
+### 🧠 Planning & Design (4)
+- `/brainstorm` - Structured brainstorming
+- `/design` - System architecture
+- `/estimate` - Time/effort estimation
+- `/spec-panel` - Specification analysis
+
+### 💻 Development (5)
+- `/implement` - Code implementation
+- `/build` - Build workflows
+- `/improve` - Code improvements
+- `/cleanup` - Refactoring
+- `/explain` - Code explanation
+
+### 🧪 Testing & Quality (4)
+- `/test` - Test generation
+- `/analyze` - Code analysis
+- `/troubleshoot` - Debugging
+- `/reflect` - Retrospectives
+
+### 📚 Documentation (2)
+- `/document` - Doc generation
+- `/help` - Command help
+
+### 🔧 Version Control (1)
+- `/git` - Git operations
+
+### 📊 Project Management (3)
+- `/pm` - Project management
+- `/task` - Task tracking
+- `/workflow` - Workflow automation
+
+### 🔍 Research & Analysis (2)
+- `/research` - Deep web research
+- `/business-panel` - Business analysis
+
+### 🎯 Utilities (9)
+- `/agent` - AI agents
+- `/index-repo` - Repository indexing
+- `/index` - Indexing alias
+- `/recommend` - Command recommendations
+- `/select-tool` - Tool selection
+- `/spawn` - Parallel tasks
+- `/load` - Load sessions
+- `/save` - Save sessions
+- `/sc` - Show all commands
+
+[**📖 View Detailed Command Reference →**](docs/reference/commands-list.md)
+
+</details>
+
